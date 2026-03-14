@@ -86,28 +86,47 @@ Once the application is running, the documentation is available at:
 
 ---
 
-## ⚙️ Getting Started
+## 🛠️ Installation and Running
 
-### Prerequisites
-- Java 21 or higher
-- Maven 3.x
-- MySQL Server
+Follow these steps to set up and run the project locally.
 
-### Configuration
-1. Create a MySQL database named `ecommerce_db`.
-2. Update the credentials in `src/main/resources/application.properties`:
-   ```properties
-   spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce_db
-   spring.datasource.username=your_username
-   spring.datasource.password=your_password
+### 1. Prerequisites
+- **Java**: JDK 21 or higher.
+- **Build Tool**: Maven 3.x.
+- **Database**: MySQL Server (running and accessible).
+
+### 2. Database Setup
+1. Log into your MySQL console or use a client (e.g., MySQL Workbench).
+2. Create a new database for the project:
+   ```sql
+   CREATE DATABASE ecommerce_db;
    ```
 
-### Running the Application
+### 3. Configuration
+Navigate to `src/main/resources/application.properties` and update the datasource credentials to match your local environment:
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce_db
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+```
+
+### 4. Build and Run
+From the root directory of the project, execute the following commands:
+
+**Build the project:**
+```bash
+mvn clean install
+```
+
+**Run the application:**
 ```bash
 mvn spring-boot:run
 ```
 
-### Running Tests
+The server will start on port **8080** by default.
+
+### 5. Running Tests
+To ensure everything is configured correctly, run the automated test suite:
 ```bash
 mvn test
 ```
